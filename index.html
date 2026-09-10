@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Harsh Constructions — Hero Concept</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Manrope", sans-serif;
+      background: #080808;
+    }
+
+    /* Slow cinematic movement */
+    .hero-image {
+      animation: slowZoom 16s ease-in-out infinite alternate;
+    }
+
+    @keyframes slowZoom {
+      from {
+        transform: scale(1);
+      }
+
+      to {
+        transform: scale(1.07);
+      }
+    }
+
+    /* Grain gives the background some physical texture */
+    .grain {
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E");
+      opacity: 0.12;
+      pointer-events: none;
+    }
+
+    /* Navigation glass effect */
+    .nav-glass {
+      background: rgba(10, 10, 10, 0.22);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    /* Thin architectural frame */
+    .frame-line {
+      position: absolute;
+      inset: 22px;
+      border: 1px solid rgba(255,255,255,0.18);
+      pointer-events: none;
+    }
+
+    /* Reveal animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      animation: reveal 1s cubic-bezier(.22,1,.36,1) forwards;
+    }
+
+    .delay-1 {
+      animation-delay: 0.15s;
+    }
+
+    .delay-2 {
+      animation-delay: 0.3s;
+    }
+
+    .delay-3 {
+      animation-delay: 0.45s;
+    }
+
+    .delay-4 {
+      animation-delay: 0.65s;
+    }
+
+    @keyframes reveal {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Vertical text */
+    .vertical-text {
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+    }
+  </style>
+</head>
+
+<body class="text-white overflow-x-hidden">
+
+  <!-- HERO -->
+  <section class="relative min-h-screen h-screen overflow-hidden">
+
+    <!-- Background image -->
+    <div class="absolute inset-0 overflow-hidden">
+
+      <!--
+        Replace this image with an appropriate Harsh project image
+        that you are permitted to use.
+      -->
+      <img
+        src="YOUR_PROJECT_IMAGE_URL_HERE"
+        alt="Harsh Constructions project"
+        class="hero-image absolute inset-0 w-full h-full object-cover"
+      />
+
+      <!-- Dark cinematic overlay -->
+      <div class="absolute inset-0 bg-black/45"></div>
+
+      <!-- Left-to-right gradient -->
+      <div
+        class="absolute inset-0"
+        style="
+          background:
+            linear-gradient(
+              90deg,
+              rgba(0,0,0,0.82) 0%,
+              rgba(0,0,0,0.58) 38%,
+              rgba(0,0,0,0.15) 75%,
+              rgba(0,0,0,0.35) 100%
+            );
+        "
+      ></div>
+
+      <!-- Bottom fade -->
+      <div
+        class="absolute inset-x-0 bottom-0 h-1/2"
+        style="
+          background:
+            linear-gradient(
+              to top,
+              rgba(0,0,0,0.82),
+              transparent
+            );
+        "
+      ></div>
+
+      <!-- Grain -->
+      <div class="grain absolute inset-0"></div>
+    </div>
+
+
+    <!-- Architectural frame -->
+    <div class="frame-line hidden md:block"></div>
+
+
+    <!-- NAVIGATION -->
+    <header
+      class="
+        absolute
+        top-0
+        left-0
+        right-0
+        z-30
+        px-6
+        md:px-12
+        lg:px-16
+        py-6
+      "
+    >
+
+      <nav
+        class="
+          nav-glass
+          max-w-[1500px]
+          mx-auto
+          rounded-full
+          border
+          border-white/15
+          px-5
+          md:px-7
+          py-3
+          flex
+          items-center
+          justify-between
+        "
+      >
+
+        <!-- Existing company logo -->
+        <a href="#" class="flex items-center">
+          <!--
+            Replace with the actual existing Harsh logo.
+          -->
+          <img
+            src="YOUR_LOGO_URL_HERE"
+            alt="Harsh Constructions"
+            class="h-10 md:h-11 w-auto object-contain"
+          />
+        </a>
+
+
+        <!-- Desktop navigation -->
+        <div class="hidden md:flex items-center gap-8 text-sm">
+
+          <a
+            href="#projects"
+            class="text-white/75 hover:text-white transition"
+          >
+            Projects
+          </a>
+
+          <a
+            href="#about"
+            class="text-white/75 hover:text-white transition"
+          >
+            About
+          </a>
+
+          <a
+            href="#capabilities"
+            class="text-white/75 hover:text-white transition"
+          >
+            Capabilities
+          </a>
+
+          <a
+            href="#contact"
+            class="
+              rounded-full
+              border
+              border-white/25
+              px-5
+              py-2.5
+              hover:bg-white
+              hover:text-black
+              transition
+            "
+          >
+            Enquire
+          </a>
+
+        </div>
+
+
+        <!-- Mobile menu button -->
+        <button
+          id="menuButton"
+          class="
+            md:hidden
+            w-10
+            h-10
+            rounded-full
+            border
+            border-white/20
+            flex
+            items-center
+            justify-center
+          "
+          aria-label="Open menu"
+        >
+          <span class="text-lg">☰</span>
+        </button>
+
+      </nav>
+
+    </header>
+
+
+    <!-- MAIN HERO CONTENT -->
+    <div
+      class="
+        relative
+        z-20
+        h-full
+        max-w-[1500px]
+        mx-auto
+        px-8
+        md:px-16
+        lg:px-24
+        flex
+        items-end
+        pb-24
+        md:pb-28
+      "
+    >
+
+      <div class="max-w-5xl">
+
+        <!-- Small eyebrow -->
+        <div
+          class="
+            reveal
+            delay-1
+            flex
+            items-center
+            gap-3
+            mb-7
+            text-xs
+            md:text-sm
+            uppercase
+            tracking-[0.3em]
+            text-white/65
+          "
+        >
+          <span class="w-10 h-px bg-white/60"></span>
+          Harsh Constructions Pvt. Ltd.
+        </div>
+
+
+        <!-- Main headline -->
+        <h1
+          class="
+            reveal
+            delay-2
+            font-extrabold
+            uppercase
+            tracking-[-0.055em]
+            leading-[0.88]
+            text-[clamp(4rem,10vw,9.5rem)]
+          "
+        >
+          Building
+          <br />
+
+          <span class="text-white/55">
+            what lasts.
+          </span>
+        </h1>
+
+
+        <!-- Supporting text -->
+        <div
+          class="
+            reveal
+            delay-3
+            mt-8
+            max-w-xl
+            text-base
+            md:text-lg
+            leading-relaxed
+            text-white/70
+          "
+        >
+          Civil construction and infrastructure development
+          across institutional, industrial and infrastructure
+          projects.
+        </div>
+
+
+        <!-- CTA row -->
+        <div
+          class="
+            reveal
+            delay-4
+            mt-9
+            flex
+            flex-wrap
+            items-center
+            gap-4
+          "
+        >
+
+          <a
+            href="#projects"
+            class="
+              group
+              inline-flex
+              items-center
+              gap-4
+              rounded-full
+              bg-white
+              text-black
+              px-6
+              py-3.5
+              font-semibold
+              text-sm
+              hover:px-7
+              transition-all
+            "
+          >
+            Explore projects
+
+            <span
+              class="
+                w-7
+                h-7
+                rounded-full
+                bg-black
+                text-white
+                flex
+                items-center
+                justify-center
+                group-hover:translate-x-1
+                transition
+              "
+            >
+              →
+            </span>
+
+          </a>
+
+
+          <a
+            href="#contact"
+            class="
+              inline-flex
+              items-center
+              rounded-full
+              border
+              border-white/25
+              px-6
+              py-3.5
+              text-sm
+              text-white/85
+              hover:bg-white/10
+              transition
+            "
+          >
+            Start a conversation
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- RIGHT SIDE PROJECT LABEL -->
+    <div
+      class="
+        absolute
+        right-8
+        md:right-12
+        bottom-28
+        z-20
+        hidden
+        lg:flex
+        items-center
+        gap-4
+        text-xs
+        uppercase
+        tracking-[0.25em]
+        text-white/55
+      "
+    >
+
+      <span class="vertical-text">
+        Construction · Infrastructure · EPC
+      </span>
+
+      <span class="h-20 w-px bg-white/25"></span>
+
+    </div>
+
+
+    <!-- SCROLL INDICATOR -->
+    <div
+      class="
+        absolute
+        bottom-7
+        left-1/2
+        -translate-x-1/2
+        z-20
+        flex
+        flex-col
+        items-center
+        gap-2
+      "
+    >
+
+      <span
+        class="
+          text-[9px]
+          uppercase
+          tracking-[0.35em]
+          text-white/45
+        "
+      >
+        Scroll
+      </span>
+
+      <div class="w-px h-10 bg-white/25 relative overflow-hidden">
+
+        <div
+          class="
+            absolute
+            top-0
+            left-0
+            w-full
+            h-1/2
+            bg-white
+            animate-bounce
+          "
+        ></div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- TEMPORARY PLACEHOLDER SECTION -->
+  <!-- This is ONLY here so the scroll button has somewhere to go. -->
+
+  <section
+    id="projects"
+    class="
+      min-h-screen
+      bg-[#0b0b0b]
+      flex
+      items-center
+      justify-center
+      px-6
+    "
+  >
+
+    <div class="text-center">
+
+      <p
+        class="
+          text-xs
+          uppercase
+          tracking-[0.3em]
+          text-white/40
+          mb-4
+        "
+      >
+        Step 2
+      </p>
+
+      <h2
+        class="
+          text-4xl
+          md:text-6xl
+          font-bold
+          tracking-tight
+        "
+      >
+        Projects
+      </h2>
+
+    </div>
+
+  </section>
+
+
+  <script>
+
+    /*
+      Small mobile navigation placeholder.
+      We'll build the actual mobile menu later.
+    */
+
+    const menuButton = document.getElementById("menuButton");
+
+    menuButton.addEventListener("click", () => {
+      alert("Mobile navigation — Step 2");
+    });
+
+  </script>
+
+</body>
+</html>
